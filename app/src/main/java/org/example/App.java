@@ -45,7 +45,7 @@ public class App {
         CustomerNotifier customer = new CustomerNotifier(output);
         manager.subscribe(kitchen);
         manager.subscribe(customer);
-        output.println("=== Restaurant Ordering System ===");
+        output.println("Restaurant Ordering System");
         try {
             boolean running = true;
             while (running) {
