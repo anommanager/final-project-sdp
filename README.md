@@ -1,4 +1,12 @@
-# Restaurant Ordering System
+# Final Project - Restaurant Ordering System
+
+**Group:** SE-2539
+
+**Team members:**
+
+- Aldiyar Kairollin
+- Ilya Koval
+- Aidar Murat
 
 A minimal console application built with Java 25 and Gradle: order creation,
 dish toppings, discounts, and order status notifications.
