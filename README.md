@@ -8,7 +8,7 @@
 - Ilya Koval
 - Aidar Murat
 
-A minimal console application built with Java 25 and Gradle: order creation,
+A console application built with Java 25 and Gradle: order creation,
 dish toppings, discounts, and order status notifications.
 Orders are stored in memory until the application exits.
 
@@ -20,16 +20,6 @@ From the project root:
 ./gradlew --console=plain :app:run
 ```
 
-On Windows:
-
-```powershell
-.\gradlew.bat --console=plain :app:run
-```
-
-The Gradle Wrapper runs Gradle without a separate installation. Compilation uses
-JDK 25; automatic toolchain downloads are already configured if needed.
-The first run may require internet access to download Gradle, the JDK, and test dependencies.
-IDE entry point: `org.example.App`.
 
 ## Building and testing
 
@@ -37,15 +27,8 @@ IDE entry point: `org.example.App`.
 ./gradlew :app:test :app:build
 ```
 
-HTML test report: `app/build/reports/tests/test/index.html`.
+HTML JaCoCo test report: `app/build/reports/tests/test/index.html`.
 
-## Code coverage
-
-JaCoCo generates HTML and XML coverage reports when tests run:
-
-```bash
-./gradlew :app:test :app:jacocoTestCoverageVerification
-```
 
 ## Design patterns and responsibilities
 
@@ -59,6 +42,20 @@ Group: **SE-2539**.
 
 All paths in the table are relative to `app/src/main/java/org/example/`.
 `App.java` integrates the work of all three students.
+
+## UML diagrams
+
+### Class diagram
+
+Main classes and representative implementations of all six design patterns.
+
+![Class diagram](docs/uml1.png)
+
+### Activity diagram
+
+Order creation, price calculation, and status notifications.
+
+![Order workflow activity diagram](docs/uml2.png)
 
 ## Features
 
@@ -82,5 +79,3 @@ All paths in the table are relative to `app/src/main/java/org/example/`.
 7. Select `3. Advance order status` three times, entering that ID each time:
    `COOKING`, then `READY`, then `DELIVERED`.
 8. Select `0. Exit`.
-
-UML diagrams and a PDF report are not included at this stage.
