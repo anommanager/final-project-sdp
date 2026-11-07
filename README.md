@@ -68,6 +68,32 @@ Order creation, price calculation, and status notifications.
 - The kitchen and customer receive console notifications when an order is registered and whenever its status changes.
 - All amounts use `BigDecimal` and are rounded to two decimal places.
 
+## Screenshots
+
+### Main menu
+
+Create orders, view existing orders, advance their status, or exit.
+
+![Main menu](docs/screenshots/1.png)
+
+### Order creation
+
+Pizza with extra cheese and a 10% discount totals 1980.00 KZT. The kitchen and customer receive NEW order notifications.
+
+![Order creation with toppings and discount](docs/screenshots/2.png)
+
+### Order details
+
+View the order ID, table, status, items, subtotal, discount, and total.
+
+![Order details](docs/screenshots/3.png)
+
+### Status update
+
+Advance the order to COOKING and notify both the kitchen and customer.
+
+![Order status update and notifications](docs/screenshots/4.png)
+
 ## Demo scenario
 
 1. Select `1. Create order` and enter table `5`.
