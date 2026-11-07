@@ -41,11 +41,13 @@ JaCoCo generates HTML and XML coverage reports when tests run:
 
 ## Design patterns and responsibilities
 
+Group: **SE-2539**.
+
 | Student | Patterns | Files |
 | --- | --- | --- |
-| A | Factory Method, Decorator | `menu/`, `menu/factory/`, `menu/decorator/` |
-| B | Singleton, Observer | `order/OrderManager.java`, `order/observer/`; also the order model and statuses |
-| C | Builder, Strategy | `order/OrderBuilder.java`, `pricing/`, `pricing/strategy/` |
+| Aldiyar Kairollin | Factory Method, Decorator | `menu/`, `menu/factory/`, `menu/decorator/` |
+| Ilya Koval | Singleton, Observer | `order/OrderManager.java`, `order/observer/`; also the order model and statuses |
+| Aidar Murat | Builder, Strategy | `order/OrderBuilder.java`, `pricing/`, `pricing/strategy/` |
 
 All paths in the table are relative to `app/src/main/java/org/example/`.
 `App.java` integrates the work of all three students.
