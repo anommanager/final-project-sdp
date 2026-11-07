@@ -25,7 +25,7 @@ import org.example.pricing.PriceCalculator;
 import org.example.pricing.strategy.PercentageDiscount;
 import org.junit.jupiter.api.Test;
 
-class AppTest {
+class AppTest extends OrderManagerTestSupport {
     @Test
     void allSixPatternsWorkTogetherInOneOrder() {
         MenuItem pizza = new ExtraSauce(new ExtraCheese(new PizzaFactory().createItem()));

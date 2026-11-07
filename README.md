@@ -31,6 +31,14 @@ IDE entry point: `org.example.App`.
 
 HTML test report: `app/build/reports/tests/test/index.html`.
 
+## Code coverage
+
+JaCoCo generates HTML and XML coverage reports when tests run:
+
+```bash
+./gradlew :app:test :app:jacocoTestCoverageVerification
+```
+
 ## Design patterns and responsibilities
 
 | Student | Patterns | Files |
