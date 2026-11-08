@@ -3,7 +3,14 @@
 
 # Ignore Gradle build output directory
 build
-app/bin
 
 # Ignore Kotlin plugin data
 .kotlin
+
+# Eclipse files
+.classpath
+.project
+.settings
+
+# Ignore app/bin
+app/bin

@@ -151,7 +151,7 @@ class AppConsoleTest extends OrderManagerTestSupport {
         }
 
         String text = bytes.toString(StandardCharsets.UTF_8);
-        assertTrue(text.startsWith("=== Restaurant Ordering System ==="));
+        assertTrue(text.startsWith("Restaurant Ordering System"));
         assertTrue(text.endsWith("Goodbye." + System.lineSeparator()));
         assertFalse(text.contains("Input closed."));
     }

@@ -27,7 +27,9 @@ From the project root:
 ./gradlew :app:test :app:build
 ```
 
-HTML JaCoCo test report: `app/build/reports/tests/test/index.html`.
+HTML JUnit test report: `app/build/reports/tests/test/index.html`.
+
+HTML JaCoCo coverage report: `app/build/reports/jacoco/test/html/index.html`.
 
 
 ## Design patterns and responsibilities
