@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import org.example.menu.MenuItem;
 import org.example.menu.decorator.ExtraCheese;
 import org.example.menu.decorator.ExtraSauce;
@@ -146,39 +145,5 @@ class AppTest extends OrderManagerTestSupport {
         } finally {
             manager.unsubscribe(observer);
         }
-    }
-
-    @Test
-    void consoleCreatesAnOrderAndRecoversFromInvalidInput() {
-        String input = "wrong\n1\n0\n5\n3\n1\n3\n1\n2\n0\n0\n3\n2\n2\n0\n";
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        try (Scanner scanner = new Scanner(input);
-                PrintStream output = new PrintStream(bytes, true, StandardCharsets.UTF_8)) {
-            new App(scanner, output).run();
-        }
-        String text = bytes.toString(StandardCharsets.UTF_8);
-        assertTrue(text.contains("Enter a whole number from 0 to 3."));
-        assertTrue(text.contains("Enter a whole number from 0 to 2."));
-        assertTrue(text.contains("Enter a whole number from 1 to 2."));
-        assertTrue(text.contains("Enter a whole number from 1 to 2147483647."));
-        assertTrue(text.contains("Pizza + extra cheese + extra sauce - 2300.00 KZT"));
-        assertTrue(text.contains("Total: 2070.00 KZT"));
-        assertTrue(text.contains("[Kitchen]"));
-        assertTrue(text.contains("[Customer]"));
-        assertTrue(text.endsWith("Goodbye." + System.lineSeparator()));
-    }
-
-    @Test
-    void consoleCancelsEmptyOrdersAndHandlesClosedInput() {
-        int countBefore = OrderManager.getInstance().getOrders().size();
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        try (Scanner scanner = new Scanner("1\n1\n0\n");
-                PrintStream output = new PrintStream(bytes, true, StandardCharsets.UTF_8)) {
-            new App(scanner, output).run();
-        }
-        String text = bytes.toString(StandardCharsets.UTF_8);
-        assertTrue(text.contains("Empty order cancelled."));
-        assertTrue(text.contains("Input closed."));
-        assertEquals(countBefore, OrderManager.getInstance().getOrders().size());
     }
 }

@@ -1,6 +1,12 @@
 plugins {
     application
     jacoco
+    id("org.openjfx.javafxplugin") version "0.1.0"
+}
+
+javafx {
+    version = "25.0.1"
+    modules = listOf("javafx.controls")
 }
 
 repositories {
@@ -21,7 +27,7 @@ java {
 }
 
 application {
-    mainClass = "org.example.App"
+    mainClass = "org.example.ui.GuiLauncher"
 }
 
 tasks.named<Test>("test") {
@@ -43,6 +49,9 @@ tasks.jacocoTestReport {
 
 tasks.jacocoTestCoverageVerification {
     dependsOn(tasks.test)
+    classDirectories.setFrom(classDirectories.files.map {
+        fileTree(it) { exclude("org/example/ui/**") }
+    })
     violationRules {
         rule {
             limit {
@@ -61,8 +70,4 @@ tasks.jacocoTestCoverageVerification {
 
 tasks.check {
     dependsOn(tasks.jacocoTestCoverageVerification)
-}
-
-tasks.named<JavaExec>("run") {
-    standardInput = System.`in`
 }

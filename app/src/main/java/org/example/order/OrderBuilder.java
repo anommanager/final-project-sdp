@@ -25,6 +25,11 @@ public class OrderBuilder {
         return this;
     }
 
+    public OrderBuilder addAllItems(Iterable<? extends MenuItem> newItems) {
+        newItems.forEach(this::addItem);
+        return this;
+    }
+
     public OrderBuilder setDiscount(DiscountStrategy discount) {
         this.discount = Objects.requireNonNull(discount, "Discount strategy is required");
         return this;
