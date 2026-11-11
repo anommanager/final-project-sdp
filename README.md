@@ -10,7 +10,10 @@
 
 A console application built with Java 25 and Gradle: order creation,
 dish toppings, discounts, and order status notifications.
-Orders are stored in memory until the application exits.
+Orders are saved to `orders.json` after creation and each status change,
+and loaded automatically at startup. With the Gradle run command below,
+the file is located at `app/orders.json`. Order IDs, tables, dishes with
+toppings, prices, discounts, and statuses are preserved between runs.
 
 ## Running the application
 

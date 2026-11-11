@@ -1,5 +1,6 @@
 package org.example.order;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -9,13 +10,21 @@ import org.example.order.observer.OrderObserver;
 import org.example.order.observer.OrderSubject;
 
 public final class OrderManager implements OrderSubject {
-    private static final OrderManager INSTANCE = new OrderManager();
+    private static final OrderManager INSTANCE = new OrderManager(Path.of("orders.json"));
 
+    private final JsonOrderStorage storage;
     private final Map<Integer, Order> orders = new LinkedHashMap<>();
     private final List<OrderObserver> observers = new ArrayList<>();
     private int nextId = 1;
 
-    private OrderManager() {
+    private OrderManager(Path path) {
+        storage = new JsonOrderStorage(path);
+        for (Order order : storage.load()) {
+            if (orders.putIfAbsent(order.getId(), order) != null) {
+                throw new IllegalArgumentException("Duplicate order ID: " + order.getId());
+            }
+            nextId = Math.max(nextId, order.getId() + 1);
+        }
     }
 
     public static OrderManager getInstance() {
@@ -27,6 +36,7 @@ public final class OrderManager implements OrderSubject {
         order.assignId(nextId);
         nextId++;
         orders.put(order.getId(), order);
+        storage.save(getOrders());
         notifyObservers(order);
     }
 
@@ -45,6 +55,7 @@ public final class OrderManager implements OrderSubject {
     public void updateStatus(int id, OrderStatus status) {
         Order order = getOrder(id);
         order.changeStatus(status);
+        storage.save(getOrders());
         notifyObservers(order);
     }
 

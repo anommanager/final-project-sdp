@@ -14,6 +14,8 @@ repositories {
 }
 
 dependencies {
+    implementation("com.google.code.gson:gson:2.15.0")
+
     testImplementation(libs.junit.jupiter)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -31,6 +33,7 @@ application {
 }
 
 tasks.named<Test>("test") {
+    workingDir = temporaryDir
     useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
 }

@@ -12,6 +12,10 @@ public class PercentageDiscount implements DiscountStrategy {
         this.percent = percent;
     }
 
+    public int getPercent() {
+        return percent;
+    }
+
     @Override
     public BigDecimal apply(BigDecimal subtotal) {
         return subtotal.multiply(BigDecimal.valueOf(100 - percent)).movePointLeft(2);
