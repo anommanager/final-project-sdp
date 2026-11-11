@@ -27,7 +27,7 @@ java {
 }
 
 application {
-    mainClass = "org.example.ui.GuiLauncher"
+    mainClass = "org.example.App"
 }
 
 tasks.named<Test>("test") {
@@ -70,4 +70,15 @@ tasks.jacocoTestCoverageVerification {
 
 tasks.check {
     dependsOn(tasks.jacocoTestCoverageVerification)
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+}
+
+tasks.register<JavaExec>("runGui") {
+    group = "application"
+    description = "Runs the JavaFX GUI"
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass = "org.example.ui.GuiLauncher"
 }

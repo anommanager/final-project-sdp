@@ -8,7 +8,7 @@
 - Ilya Koval
 - Aidar Murat
 
-A JavaFX application built with Java 25 and Gradle: order creation,
+A console application built with Java 25 and Gradle: order creation,
 dish toppings, discounts, and order status notifications.
 Orders are stored in memory until the application exits.
 
@@ -17,7 +17,7 @@ Orders are stored in memory until the application exits.
 From the project root:
 
 ```bash
-./gradlew :app:run
+./gradlew --console=plain :app:run
 ```
 
 
@@ -43,7 +43,7 @@ Group: **SE-2539**.
 | Aidar Murat | Builder, Strategy | `order/OrderBuilder.java`, `pricing/`, `pricing/strategy/` |
 
 All paths in the table are relative to `app/src/main/java/org/example/`.
-`ui/RestaurantFxApp.java` integrates the work of all three students.
+`App.java` integrates the work of all three students.
 
 ## UML diagrams
 
