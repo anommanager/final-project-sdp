@@ -117,12 +117,11 @@ Advance the order to COOKING and notify both the kitchen and customer.
 
 ## Demo scenario
 
-1. Select `1. Create order` and enter table `5`.
-2. Choose Pizza and add extra cheese and extra sauce.
-3. Enter `0` to finish toppings, then `0` again to finish selecting dishes.
-4. Select discount `2. 10%`.
-5. Check the kitchen and customer notifications, subtotal of `2300.00 KZT`, and total of `2070.00 KZT`.
-6. Select `2. View orders` and note the order ID.
-7. Select `3. Advance order status` three times, entering that ID each time:
-   `COOKING`, then `READY`, then `DELIVERED`.
-8. Select `0. Exit`.
+1. Run `./gradlew :app:runGui`.
+2. In the **New order** panel, set the table to `5`.
+3. Select Pizza, tick **Extra cheese** and **Extra sauce**, and click **Add dish**.
+4. Tick **10% discount**. The cart shows a total of `2070.00 KZT` (subtotal `2300.00 KZT`).
+5. Click **Place order**. The order appears in the **Orders** list with status `NEW`, and the notifications box shows the NEW notification.
+6. Select the order in the **Orders** list and click **Advance status** three times:
+   `COOKING`, then `READY`, then `DELIVERED`. Each change is added to the notifications box.
+7. Close the window. The order is saved to `app/orders.json` and is loaded on the next start.
