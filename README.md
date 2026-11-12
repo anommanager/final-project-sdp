@@ -83,7 +83,7 @@ Create orders, view existing orders, advance their status, or exit.
 
 ### Order creation
 
-Pizza with extra cheese and a 10% discount totals 1980.00 KZT. The kitchen and customer receive NEW order notifications.
+Pizza with extra cheese and sauce and a 10% discount totals 2070.00 KZT. The kitchen and customer receive NEW order notifications.
 
 ![Order creation with toppings and discount](docs/screenshots/2.png)
 
