@@ -8,7 +8,8 @@
 - Ilya Koval
 - Aidar Murat
 
-A console application built with Java 25 and Gradle: order creation,
+A restaurant ordering application built with Java 25 and Gradle, with both a
+console interface and a JavaFX graphical interface: order creation,
 dish toppings, discounts, and order status notifications.
 Orders are saved to `orders.json` after creation and each status change,
 and loaded automatically at startup. With the Gradle run command below,
@@ -19,9 +20,19 @@ toppings, prices, discounts, and statuses are preserved between runs.
 
 From the project root:
 
+Console version:
+
 ```bash
 ./gradlew --console=plain :app:run
 ```
+
+JavaFX GUI:
+
+```bash
+./gradlew :app:runGui
+```
+
+Both versions share the same `orders.json`.
 
 
 ## Building and testing
@@ -46,7 +57,9 @@ Group: **SE-2539**.
 | Aidar Murat | Builder, Strategy | `order/OrderBuilder.java`, `pricing/`, `pricing/strategy/` |
 
 All paths in the table are relative to `app/src/main/java/org/example/`.
-`App.java` integrates the work of all three students.
+`App.java` (console) and `ui/RestaurantFxApp.java` (JavaFX) integrate the work of all three students.
+`order/JsonOrderStorage.java` handles saving and loading orders as JSON.
+The `ui/` package is excluded from the JaCoCo coverage check.
 
 ## UML diagrams
 
@@ -70,10 +83,13 @@ Order creation, price calculation, and status notifications.
 - Discounts: none or 10%.
 - An order can contain multiple dishes. Each order is associated with a table number.
 - Statuses: `NEW -> COOKING -> READY -> DELIVERED`.
-- The kitchen and customer receive console notifications when an order is registered and whenever its status changes.
+- The kitchen and customer receive notifications when an order is registered and whenever its status changes (printed to the console, or shown in the GUI notifications box).
+- JavaFX GUI: choose a table, dish, toppings and discount, build a cart, place the order, and advance the status of the selected order.
 - All amounts use `BigDecimal` and are rounded to two decimal places.
 
 ## Screenshots
+
+The screenshots show the console version.
 
 ### Main menu
 
